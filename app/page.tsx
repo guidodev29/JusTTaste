@@ -107,41 +107,85 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer id="contacto" className="bg-amber-900 text-white py-8">
-        <div className="container mx-auto text-center space-y-4">
-          <h3 className="text-2xl font-bold">¡Conéctate con nosotros!</h3>
-          <p className="text-gray-300">Visítanos en Av. Gourmet 456, Distrito Culinario</p>
-            <div className="mx-auto max-w-2xl h-64 mb-6">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0248208212!2d-58.38375908680797!3d-34.60368078045889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0aa4d4e0dcf%3A0x11b1eaf23acb3c74!2sObelisco!5e0!3m2!1ses!2sar!4v1719532124601!5m2!1ses!2sar" 
-              width="100%" 
-              height="100%" 
-              style={{border:0}} 
-              allowFullScreen 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
+      {/* Sección de Contacto con Mapa */}
+<footer id="contacto" className="bg-gray-800 text-white py-12">
+  <div className="container mx-auto px-6">
+    <h3 className="text-3xl font-bold text-center mb-6">¡Contáctanos!</h3>
+    <p className="text-center text-gray-400 mb-10">Déjanos tu mensaje o visítanos en nuestra ubicación.</p>
 
-          <div className="flex justify-center space-x-6 text-3xl">
-            {[
-              { icon: FaFacebook, link: "#" },
-              { icon: FaInstagram, link: "#" },
-              { icon: FaWhatsapp, link: "#" },
-            ].map((social, idx) => (
-              <a 
-                key={idx} 
-                href={social.link} 
-                className="hover:text-amber-400 transition transform hover:scale-125"
-              >
-                {<social.icon />}
-              </a>
-            ))}
-          </div>
-          <p className="text-gray-400 text-sm">© 2025 FastFood Express - Todos los derechos reservados.</p>
+    {/* Contenedor con Formulario y Mapa */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      {/* Formulario de Contacto */}
+      <form className="bg-white p-6 rounded-lg shadow-lg text-gray-800">
+        <div className="mb-4">
+          <label className="block text-sm font-semibold mb-1">Nombre</label>
+          <input 
+            type="text" 
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500" 
+            placeholder="Tu nombre"
+          />
         </div>
-      </footer>
+
+        <div className="mb-4">
+          <label className="block text-sm font-semibold mb-1">Correo Electrónico</label>
+          <input 
+            type="email" 
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500" 
+            placeholder="tucorreo@example.com"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-sm font-semibold mb-1">Mensaje</label>
+          <textarea 
+            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500" 
+            rows={4} 
+            placeholder="Escribe tu mensaje..."
+          ></textarea>
+        </div>
+
+        <button 
+          type="submit" 
+          className="w-full py-2 bg-red-600 text-white font-semibold rounded-lg transform hover:scale-105 hover:bg-red-700 transition duration-300">
+          Enviar Mensaje
+        </button>
+      </form>
+
+      {/* Mapa de Google */}
+      <div className="rounded-lg overflow-hidden shadow-lg">
+        <iframe 
+          className="w-full h-full rounded-lg"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.27991473794!2d-74.25987368741402!3d40.6976700640877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f6f6788e10d7%3A0x8c2b8197fce2d1f4!2sNew%20York%2C%20EE.%20UU.!5e0!3m2!1ses-419!2ssv!4v1647282339137!5m2!1ses-419!2ssv" 
+          allowFullScreen={true}
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+
+    {/* Redes Sociales */}
+    <div className="flex justify-center space-x-6 text-3xl mt-10">
+      {[
+        { icon: FaFacebook, link: "#" },
+        { icon: FaInstagram, link: "#" },
+        { icon: FaWhatsapp, link: "#" },
+      ].map((social, idx) => (
+        <a 
+          key={idx} 
+          href={social.link} 
+          className="hover:text-red-500 transition transform hover:scale-125"
+        >
+          {<social.icon />}
+        </a>
+      ))}
+    </div>
+
+    <p className="text-gray-500 text-sm text-center mt-6">© 2025 FastFood Express - Todos los derechos reservados.</p>
+  </div>
+</footer>
+
     </div>
   );
 }
